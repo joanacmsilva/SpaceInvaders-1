@@ -13,6 +13,8 @@ public class Ship : MonoBehaviour
     [SerializeField]
     float velocidade = 5f;
 
+    [SerializeField]
+    int vidas = 3;
 
     float minX, maxX;
 
@@ -54,8 +56,12 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilInimigo")
         {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
+            vidas -= 1;
+            
+            if(vidas <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

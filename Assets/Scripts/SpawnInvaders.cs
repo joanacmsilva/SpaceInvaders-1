@@ -29,6 +29,15 @@ public class SpawnInvaders : MonoBehaviour
     [SerializeField]
     float probabilidadeDeIndestrutivel = 0.15f;
 
+    [SerializeField]
+    float velocidade = 0.00005f;
+
+    float xMinimo, xMaximo;
+
+    bool mov = true;
+
+    bool verticalMov = true;
+
     void Awake()
     {
         /*
@@ -53,6 +62,57 @@ public class SpawnInvaders : MonoBehaviour
                 x += xInc;
             }
             y += yInc;
+        }
+    }
+
+    private void Start()
+    {
+        xMaximo = Camera.main.ViewportToWorldPoint(Vector2.one).x - 3.3f;
+        xMinimo = Camera.main.ViewportToWorldPoint(Vector2.zero).x + 3.3f;
+    }
+
+    private void Update()
+    {
+        Vector3 position = transform.position;
+        position.x = Mathf.Clamp(position.x, xMinimo, xMaximo);
+        transform.position = position;
+
+        if(mov == true)
+        {
+            transform.position += velocidade * Vector3.right;
+            if (position.x == xMaximo && verticalMov == true)
+            {
+                if (position.y <= -2)
+                {
+                    verticalMov = false;
+                }else
+                {
+                    transform.position += 0.2f * Vector3.down;
+                }
+            }
+            if (position.x == xMaximo)
+            {
+                mov = false;
+            }
+        }
+        if (mov == false)
+        {
+            transform.position -= velocidade * Vector3.right;
+            if (position.x == xMinimo && verticalMov == true)
+            {
+                if (position.y <= -2)
+                {
+                    verticalMov = false;
+                }
+                else
+                {
+                    transform.position += 0.2f * Vector3.down;
+                }
+            }
+            if (position.x == xMinimo)
+            {
+                mov = true;
+            }
         }
     }
 }

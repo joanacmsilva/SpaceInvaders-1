@@ -10,16 +10,25 @@ public class Invader : MonoBehaviour
     [SerializeField]
     float cadencia = 1.5f;
 
+    [SerializeField]
+    float intervaloTiro = 0.050f;
+
+    [SerializeField]
+    int vidasInvaders = 10;
+
     float tempoQuePassou = 0f;
 
     void Update()
     {
-        if(tag == "Destrutivel")
+        tempoQuePassou += Time.deltaTime;
+        if (tag == "Destrutivel")
         {
-            tempoQuePassou += Time.deltaTime;
             if (tempoQuePassou >= cadencia)
             {
-                Instantiate(fire, transform.position, transform.rotation);
+                if(Random.value <= intervaloTiro)
+                {
+                    Instantiate(fire, transform.position, transform.rotation);
+                }
                 tempoQuePassou = 0f;
             }
         }
@@ -36,7 +45,16 @@ public class Invader : MonoBehaviour
             }
         } else
         {
-            Destroy(collision.gameObject);
+            if(collision.gameObject.tag == "ProjectilAmigo")
+            {
+                vidasInvaders -= 1;
+
+                if (vidasInvaders <= 0)
+                {
+                    Destroy(collision.gameObject);
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }
