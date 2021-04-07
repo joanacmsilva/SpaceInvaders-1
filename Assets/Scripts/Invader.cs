@@ -11,7 +11,7 @@ public class Invader : MonoBehaviour
     float cadencia = 1.5f;
 
     [SerializeField]
-    float intervaloTiro = 0.050f;
+    float intervaloTiro = 2f;
 
     [SerializeField]
     int vidasInvaders = 10;
@@ -47,7 +47,7 @@ public class Invader : MonoBehaviour
         {
             if(collision.gameObject.tag == "ProjectilAmigo")
             {
-                vidasInvaders -= 1;
+                vidasInvaders --;
 
                 if (vidasInvaders <= 0)
                 {

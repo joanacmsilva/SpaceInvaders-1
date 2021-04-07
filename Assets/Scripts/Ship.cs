@@ -56,7 +56,7 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.tag == "ProjectilInimigo")
         {
-            vidas -= 1;
+            vidas --;
             
             if(vidas <= 0)
             {

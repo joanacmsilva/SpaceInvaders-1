@@ -30,7 +30,7 @@ public class SpawnInvaders : MonoBehaviour
     float probabilidadeDeIndestrutivel = 0.15f;
 
     [SerializeField]
-    float velocidade = 0.00005f;
+    float velocidade = 0.05f;
 
     float xMinimo, xMaximo;
 

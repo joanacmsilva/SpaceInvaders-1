@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d848ca87e0ac648879199fda5b71bedd, type: 3}
-  m_Color: {r: 0.17307985, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.8784314, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   fire: {fileID: 4904723251604804293, guid: 230c3a858b53044e4be67f928daf62ce, type: 3}
   nozzle: {fileID: 4504499624230794274}
   velocidade: 5
+  vidas: 3
 --- !u!61 &4300453351213342038
 BoxCollider2D:
   m_ObjectHideFlags: 0

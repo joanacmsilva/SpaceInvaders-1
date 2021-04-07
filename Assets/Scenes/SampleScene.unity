@@ -407,6 +407,7 @@ MonoBehaviour:
   xInc: 1
   yInc: 0.5
   probabilidadeDeIndestrutivel: 0.15
+  velocidade: 0.01
 --- !u!1001 &4504499624457113760
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,5 +12,4 @@ public class Fire : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * force);
     }
-
 }
